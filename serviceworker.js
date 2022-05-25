@@ -41,7 +41,6 @@ self.addEventListener('fetch', event =>{
             if(res){
                 return res
             }
-            
             return fetch(event.request)
         })
     )
