@@ -1,0 +1,44 @@
+[
+{
+	"Name": "Axel Gomez Cordoba"
+},
+{
+	"About": "Currently, I am a student at the Technological University of the Riviera Maya, studying in the fifth semester of the Information Technology career in the area of Multiplatform Software Development. During the course of the degree I have acquired knowledge in the use of Windows and Linux operating systems. At the moment I am dedicated to developing my knowledge in the area to later enter the labor field in a natural way."
+},
+{	
+	"Birthday": "22 August 2002",
+	"Phone": "984-215-9762",
+	"City": "Playa del Carmen, Quintana Roo",
+	"Age": "19",
+	"Degree": "Universitary",
+	"Email": "2005045@utrivieramaya.edu.mx",
+	"Working": "Not yet"
+},
+{
+	"Spanish": "Native",
+	"English": "Level B1"
+},
+{
+	"Preparatory": "Colegio de Estudios Cientificos y Tecnologicos del Estado de Quintana Roo",
+	"DegreeStudy": "Baccalaureate",
+	"CareerEarned": "TECNICO EN SOPORTE Y MANTENIMIENTO DE EQUIPO DE COMPUTO",
+	"PeriodPreparatory": "2017 - 2020"
+},
+{
+	"University": "Universidad Tecnológica de la Riviera Maya",
+	"DegreeOfStudy": "University",
+	"CollegeCareer": "DESARROLLO DE SOFTWARE MULTIPLATAFORMA",
+	"PeriodUniversity": "2020 - 2022"
+},
+{
+	"Description": "These are some approximations of my abilities in regards to the programming languages and the tools with which I have worked during the course:",
+	"HTML": "60", 
+	"CSS": "50", 
+	"VUE": "25", 
+	"MYSQL": "20", 
+	"JAVA": "10", 
+	"PHYTON": "05", 
+	"JAVASCRIPT": "10", 
+	"PHP": "05"
+}
+]
