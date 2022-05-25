@@ -1,7 +1,7 @@
 ;
 const CACHE_NAME = 'v1_cache_curriculum',
 urlsToCache = [
-    './',
+    '.https://axelgzca.github.io/Curriculum-Vitae/',
     '.https://axelgzca.github.io/Curriculum-Vitae/index.html',
     '.https://axelgzca.github.io/Curriculum-Vitae/css/style.css',
     '.https://axelgzca.github.io/Curriculum-Vitae/script.js',
