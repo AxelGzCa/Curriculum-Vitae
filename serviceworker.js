@@ -6,6 +6,7 @@ urlsToCache = [
     'https://axelgzca.github.io/Curriculum-Vitae/css/style.css',
     'https://axelgzca.github.io/Curriculum-Vitae/script.js',
     'https://axelgzca.github.io/Curriculum-Vitae/fetch.js',
+    'https://axelgzca.github.io/Curriculum-Vitae/manifest.json',
     'https://axelgzca.github.io/Curriculum-Vitae/img/Fotografia.png'
 ]
 
