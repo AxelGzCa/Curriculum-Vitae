@@ -1,7 +1,6 @@
 ;
-const PRECACHE = 'precache-v2';
-const RUNTIME = 'runtime';
-const resources = [
+const CACHE_NAME = 'v1_cache_curriculum',
+urlsToCache = [
     'https://axelgzca.github.io/Curriculum-Vitae/',
     'https://axelgzca.github.io/Curriculum-Vitae/index.html',
     'https://axelgzca.github.io/Curriculum-Vitae/style.css',
@@ -10,47 +9,39 @@ const resources = [
     'https://axelgzca.github.io/Curriculum-Vitae/manifest.json',
     'https://axelgzca.github.io/Curriculum-Vitae/img/Fotografia.png'
 ]
-self.addEventListener('install', event => {
+
+self.addEventListener('install', event =>{
     event.waitUntil(
-        caches.open(PRECACHE)
-            .then(cache => cache.addAll(resources))
-            .then(self.skipWaiting())
-    );
-});
-self.addEventListener('activate', event => {
-    const currentCaches = [PRECACHE, RUNTIME];
+        caches.open(CACHE_NAME)
+            .then(cache =>{
+                return cache.addAll(urlsToCache)
+                    .then(() => self.skipWaiting())
+            })
+            .catch(error => console.log(error))
+    )
+})
+self.addEventListener('activate', event =>{
+    const cacheWhitelist = [CACHE_NAME]
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-        })
-            .then(cachesToDelete => {
-                return Promise.all(
-                    cachesToDelete.map(cacheToDelete => {
-                        return caches.delete(cacheToDelete);
-                    }));
+        caches.keys()
+            .then(cachesNames =>{
+                cachesNames.map(cacheName =>{
+                    if(cacheWhitelist.indexOf(cacheName)=== -1){
+                        return caches.delete(cacheName)
+                    }
+                })
             })
             .then(() => self.clients.claim())
-    );
-});
-self.addEventListener('fetch', event => {
-    console.log('fetch service worker starts');
-    if (event.request.url.startsWith(self.location.origin)) {
-        event.respondWith(
-            caches.match(event.request).then(cachedResponse => {
-                if (cachedResponse) {
-                    console.log('response with cache ', {cachedResponse});
-                    return cachedResponse;
-                }
-                return caches.open(RUNTIME).then(cache => {
-                    console.log('Fetch api request ', {r : event.request, cache});
-                    return fetch(event.request).then(response => {
-                        console.log('put Fetch api request to cache ', {cache});
-                        return cache.put(event.request, response.clone()).then(() => {
-                            return response;
-                        });
-                    });
-                });
-            })
-        );
-    }
-});
+    )
+})
+self.addEventListener('fetch', event =>{
+    event.respondWith(
+        caches.match(event.request)
+        .then(res => {
+            if(res){
+                return res
+            }
+            return fetch(event.request)
+        })
+    )
+})
